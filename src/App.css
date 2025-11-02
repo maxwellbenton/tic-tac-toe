@@ -1,0 +1,46 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.game-board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.board-row {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+.board-cell,
+.player-button {
+  height: 120px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+}
+
+.open,
+.player-button {
+  cursor: pointer;
+}
+
+.open:hover {
+  cursor: pointer;
+  background-color: #444;
+}
+
+.has-top-border {
+  border-top: thick solid #999;
+}
+
+.has-left-border {
+  border-left: thick solid #999;
+}
