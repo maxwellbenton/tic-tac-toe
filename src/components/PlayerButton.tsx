@@ -8,7 +8,10 @@ function PlayerButton({
   ) => void;
 }) {
   return (
-    <div className="player-button" onClick={handlePlayerButtonClick}>
+    <div 
+      className={`player-button ${value === "X" ? "x-player" : "o-player"}`} 
+      onClick={handlePlayerButtonClick}
+    >
       {value}
     </div>
   );

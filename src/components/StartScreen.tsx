@@ -11,7 +11,7 @@ function StartScreen({
     <>
       <h1>Tic Tac Toe</h1>
       <h2>Choose X or O to Start</h2>
-      <div className="board-row">
+      <div className="player-selection">
         <PlayerButton
           value="X"
           handlePlayerButtonClick={handlePlayerButtonClick}

@@ -11,14 +11,28 @@ function ResultsScreen({
   ) => void;
 }) {
   return (
-    <>
+    <div className="results-container">
       <h1>
         {gameData.winHistory[gameData.winHistory.length - 1]
           ? `${gameData.winHistory[gameData.winHistory.length - 1]} wins!`
           : "Tied Game"}
       </h1>
+      
+      {gameData.winHistory.length > 0 && (
+        <>
+          <h2>Game History</h2>
+          <div className="win-history">
+            {gameData.winHistory.map((winner, index) => (
+              <div key={index} className="win-badge">
+                Game {index + 1}: {winner || "Tie"}
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+      
       <h2>Choose X or O to Play Again</h2>
-      <div className="board-row">
+      <div className="player-selection">
         <PlayerButton
           value="X"
           handlePlayerButtonClick={handlePlayerButtonClick}
@@ -28,7 +42,7 @@ function ResultsScreen({
           handlePlayerButtonClick={handlePlayerButtonClick}
         />
       </div>
-    </>
+    </div>
   );
 }
 

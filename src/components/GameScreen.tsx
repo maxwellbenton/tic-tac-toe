@@ -18,9 +18,9 @@ function GameScreen({
       <h1>{`Game ${gameData.winHistory.length + 1}`}</h1>
       <h2>{`${gameData.currentTurnPlayer}'s Turn`}</h2>
 
-      {gameData.board.map((boardRow: GameCell[], rowIndex: number) => {
-        return (
-          <div className="game-board">
+      <div className="board-container">
+        {gameData.board.map((boardRow: GameCell[], rowIndex: number) => {
+          return (
             <div
               key={"row-" + rowIndex}
               className={`board-row ${rowIndex > 0 ? "has-top-border" : ""}`}
@@ -30,7 +30,9 @@ function GameScreen({
                   key={"row-" + rowIndex + "-col-" + colIndex}
                   className={`board-cell ${
                     gameCell.value ? "filled" : "open"
-                  } ${colIndex > 0 ? "has-left-border" : ""}`}
+                  } ${colIndex > 0 ? "has-left-border" : ""} ${
+                    gameCell.value === "X" ? "x-player" : gameCell.value === "O" ? "o-player" : ""
+                  }`}
                   onClick={() => {
                     if (!gameCell.value)
                       handleGameCellClick({ rowIndex, colIndex });
@@ -40,9 +42,9 @@ function GameScreen({
                 </div>
               ))}
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </>
   );
 }
