@@ -62,14 +62,15 @@ function App() {
               ? ("O" as Player)
               : ("X" as Player),
         };
-        const winner = winnerExists(newGameData);
+        const gameResult = winnerExists(newGameData);
 
-        if (winner) {
+        if (gameResult !== false) {
+          // Game has ended - either with a winner or a tie (gameResult could be null for tie)
           return {
             ...currentGameData,
             currentTurnPlayer: undefined,
             status: "end",
-            winHistory: [...currentGameData.winHistory, winner],
+            winHistory: [...currentGameData.winHistory, gameResult],
           };
         } else {
           return newGameData;
